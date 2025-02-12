@@ -29,7 +29,7 @@ function cartReducer(state, action) {
       (item) => item.id === action.id
     );
     const existingCartItem = state.items[existingCartItemIndex];
-    const updatedItems = [...state.item];
+    const updatedItems = [...state.items];
 
     if (existingCartItem.quantity === 1) {
       updatedItems.splice(existingCartItemIndex, 1);
@@ -50,7 +50,7 @@ export function CartContextProvider({ children }) {
 
 
   function addItem(item){
-    dispatchCartAction({type:'ADD_ITEM',item:item})
+    dispatchCartAction({type:'ADD_ITEM',item})
   }
   function removeItem(id){
     dispatchCartAction({type:'REMOVE_ITEM',id})
